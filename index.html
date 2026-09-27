@@ -61,8 +61,7 @@ html{scroll-padding-top:72px}
 .hero p.lede{color:var(--muted);font-size:19px;margin-top:22px;max-width:30em}
 .hero .actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px;margin-top:32px}
 .hero .note{color:var(--faint);font-size:14.5px}
-.hero .pair{display:flex;gap:20px;align-items:flex-start}
-.hero .pair .screen:last-child{margin-top:56px}
+.hero .pair{display:flex;gap:20px;align-items:flex-start;justify-content:flex-end}
 @media (max-width:980px){
   .hero .wrap{grid-template-columns:minmax(0,1fr)}
   .hero .pair{justify-content:center}
@@ -73,11 +72,11 @@ html{scroll-padding-top:72px}
 .sec{padding-block:96px;border-top:1px solid var(--line)}
 .sec h2{font-size:clamp(28px,3.4vw,40px);line-height:1.12;letter-spacing:-.025em;max-width:18em}
 .sec .intro{color:var(--muted);font-size:18px;margin-top:16px;max-width:36em}
-.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;margin-top:56px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:center;margin-top:56px}
 .row.flip .shots{order:-1}
-.shots{display:flex;gap:20px;justify-content:center}
-.shots .screen:nth-child(2){margin-top:48px}
-@media (max-width:900px){.row{grid-template-columns:minmax(0,1fr);gap:48px}.row.flip .shots{order:0}}
+.shots{display:flex;gap:20px;justify-content:flex-end;align-items:flex-start}
+.row.flip .shots{justify-content:flex-start}
+@media (max-width:900px){.row{grid-template-columns:minmax(0,1fr);gap:48px}.row.flip .shots{order:0}.shots,.row.flip .shots{justify-content:center}}
 @media (max-width:560px){.shots .screen{width:calc(50% - 10px)}}
 
 .list li{padding-block:18px;border-top:1px solid var(--line)}
@@ -96,14 +95,14 @@ html{scroll-padding-top:72px}
 @media (max-width:520px){.methods{grid-template-columns:1fr}.methods div,.methods div+div{padding-left:0;border-left:0}.methods div+div{border-top:1px solid var(--line)}}
 
 .formula{margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow-x:auto}
-.formula code{font:400 14.5px/1.5 var(--mono);white-space:nowrap}
+.formula code{font:400 14px/1.6 var(--mono);white-space:normal;display:block}
 .formula .t{color:var(--teal)} .formula .a{color:var(--amber)}
 .formula p{color:var(--faint);font-size:13.5px;margin-top:8px}
 
 /* screenshot strip */
-.strip{display:flex;gap:20px;overflow-x:auto;margin-top:40px;padding-bottom:16px;padding-inline:max(24px,calc((100vw - var(--wrap))/2 + 24px));scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.strip{display:flex;gap:20px;overflow-x:auto;margin-top:40px;padding-bottom:16px;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
 .strip figure{margin:0;flex:none;scroll-snap-align:start}
-.strip figcaption{font-size:14px;color:var(--muted);margin-top:12px}
+.strip figcaption{font-size:14px;color:var(--muted);margin-top:12px;text-align:center}
 
 /* privacy */
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 72px;margin-top:48px}
@@ -191,7 +190,6 @@ footer small{flex-basis:100%;font-size:12.5px}
         </ul>
         <div class="shots">
           <figure class="screen"><img src="img/15-live-logger-rest-timer.webp" alt="Workout in progress with a 1:48 rest countdown" width="640" height="1313" loading="lazy"></figure>
-          <figure class="screen"><img src="img/12-workout-summary.webp" alt="Workout summary with duration, volume, calories and rest between sets" width="640" height="1313" loading="lazy"></figure>
         </div>
       </div>
       <div class="row flip">
@@ -224,7 +222,6 @@ footer small{flex-basis:100%;font-size:12.5px}
           <li><h3>Works with Health Connect</h3><p>Food you log is shared with Health Connect so other apps can use it.</p></li>
         </ul>
         <div class="shots">
-          <figure class="screen"><img src="img/19-food-search.webp" alt="Food search results for plain Greek yogurt" width="640" height="1313" loading="lazy"></figure>
           <figure class="screen"><img src="img/20-food-detail.webp" alt="Greek yogurt portion and nutrition facts" width="640" height="1313" loading="lazy"></figure>
         </div>
       </div>
@@ -255,7 +252,7 @@ footer small{flex-basis:100%;font-size:12.5px}
   </section>
 
   <section class="sec" id="screens" style="padding-bottom:72px">
-    <div class="wrap"><h2>More screens</h2></div>
+    <div class="wrap"><h2>More screens</h2>
     <div class="strip" tabindex="0" aria-label="App screenshots">
       <figure><div class="screen sm"><img src="img/08-heart-rate-zones.webp" alt="" width="640" height="1313" loading="lazy"></div><figcaption>Heart rate</figcaption></figure>
       <figure><div class="screen sm"><img src="img/07-steps-by-hour.webp" alt="" width="640" height="1313" loading="lazy"></div><figcaption>Steps</figcaption></figure>
@@ -266,6 +263,7 @@ footer small{flex-basis:100%;font-size:12.5px}
       <figure><div class="screen sm"><img src="img/11-deadlift-progress.webp" alt="" width="640" height="1313" loading="lazy"></div><figcaption>Deadlift</figcaption></figure>
       <figure><div class="screen sm"><img src="img/16-routines.webp" alt="" width="640" height="1313" loading="lazy"></div><figcaption>Routines</figcaption></figure>
       <figure><div class="screen sm"><img src="img/17-routine-detail.webp" alt="" width="640" height="1313" loading="lazy"></div><figcaption>Routine</figcaption></figure>
+    </div>
     </div>
   </section>
 
